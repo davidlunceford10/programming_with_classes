@@ -1,9 +1,121 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 
-class Program
+namespace Develop02
 {
-    static void Main(string[] args)
+    public class Entry
     {
-        Console.WriteLine("Hello Develop02 World!");
+        public string Date { get; set; }
+        public string Prompt { get; set; }
+        public string Response { get; set; }
+
+        public Entry(string date, string prompt, string response)
+        {
+            Date = date;
+            Prompt = prompt;
+            Response = response;
+        }
+    }
+
+    class Journal
+    {
+        private List<Entry> entries;
+        private List<string> prompts;
+        private Random rand;
+
+        public Journal()
+        {
+            entries = new List<Entry>();
+            prompts = new List<string>
+            {
+                "Who was the most interesting person I interacted with today?",
+                "What was the best part of my day?",
+                "How did I see the hand of the Lord in my life today?",
+                "What was the strongest emotion I felt today?",
+                "If I had one thing I could do over today, what would it be?"
+            };
+            rand = new Random();
+        }
+
+        public void AddEntry()
+        {
+            string prompt = GetRandomPrompt();
+            Console.WriteLine(prompt);
+            string response = Console.ReadLine();
+            string date = DateTime.Now.ToString("MM/dd/yyyy");
+            entries.Add(new Entry(date, prompt, response));
+        }
+
+        private string GetRandomPrompt()
+        {
+            return prompts[rand.Next(prompts.Count)];
+        }
+
+        public void DisplayEntries()
+        {
+            foreach (Entry entry in entries)
+            {
+                Console.WriteLine($"Date: {entry.Date}");
+                Console.WriteLine($"Prompt: {entry.Prompt}");
+                Console.WriteLine($"Response: {entry.Response}");
+                Console.WriteLine();
+            }
+        }
+
+        public void SaveEntries()
+        {
+            Console.Write("Enter filename to save: ");
+            string filename = Console.ReadLine();
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filename))
+                {
+                    foreach (Entry entry in entries)
+                    {
+                        writer.WriteLine($"{entry.Date}|{entry.Prompt}|{entry.Response}");
+                    }
+                }
+                Console.WriteLine("Entries saved.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while saving entries: {ex.Message}");
+            }
+        }
+
+        public void LoadEntries()
+        {
+            Console.Write("Enter filename to load: ");
+            string filename = Console.ReadLine();
+            if (File.Exists(filename))
+            {
+                try
+                {
+                    entries.Clear();
+                    string[] lines = File.ReadAllLines(filename);
+                    foreach (string line in lines)
+                    {
+                        string[] parts = line.Split('|');
+                        if (parts.Length == 3)
+                        {
+                            entries.Add(new Entry(parts[0], parts[1], parts[2]));
+                        }
+                    }
+                    Console.WriteLine("Entries loaded.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An error occurred while loading entries: {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("File not found.");
+            }
+        }
     }
 }
+
+
+//ChatGPT was used for this project
