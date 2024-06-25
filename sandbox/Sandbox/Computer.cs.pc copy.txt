@@ -1,0 +1,15 @@
+
+public class Computer()
+//PC PROGRAM
+{
+    public string _cost = "";
+    public string _gpu = "";
+    public string _cpu = "";
+
+    public void ShowPcOff()
+    {
+        Console.WriteLine($"Your PC has a {_gpu} GPU, it's CPU is a(/n) {_cpu}, and it costs ${_cost}.");
+    }
+
+
+}

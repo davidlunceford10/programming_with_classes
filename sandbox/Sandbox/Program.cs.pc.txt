@@ -1,0 +1,21 @@
+using System;
+using System.Runtime.CompilerServices;
+
+class Program 
+//PC PROGRAM
+{
+    static void Main(string[] args)
+    {
+        Computer computer1 = new Computer();
+        computer1._cost = "1300";
+        computer1._gpu = "GTX 1080";
+        computer1._cpu = "i5 9600k";
+        computer1.ShowPcOff();
+    }
+
+    
+
+
+}
+
+
