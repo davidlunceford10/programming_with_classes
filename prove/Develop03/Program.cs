@@ -18,7 +18,7 @@ class Program
         foreach (string word in scriptureWords)
         {
             Console.Write($"{word} ");
-    }
+        }
         
         
     }
