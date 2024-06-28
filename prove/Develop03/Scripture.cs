@@ -8,13 +8,13 @@ public class Scripture
 
     private string _scripture;
 
-    //this takes the scripture attribute and assigns it to the variable _scripture.
+    //This takes the scripture attribute and assigns it to the variable _scripture.
     public Scripture(string scripture)
     {
         _scripture = scripture;
     }
 
-    //this takes the _scripture variable, splits it into an array based on spaces, converts it to a list, and returns a list comprised of the words of the scripture.
+    //This takes the _scripture variable, splits it into an array based on spaces, converts it to a list, and returns a list comprised of the words of the scripture.
     public List<string> GetScriptureWords()
     {
         string[] wordsArray = _scripture.Split(' ');
