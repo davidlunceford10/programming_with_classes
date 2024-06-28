@@ -47,3 +47,5 @@ class Program
         }
     }
 }
+
+//ChatGPT was used in this program. Explanations have been provided as needed.
