@@ -9,6 +9,10 @@ class ConstructionWorker : Employee
         return base.GetPay() + 1000; 
     }
 
+    public override double InsuranceCost()
+    {
+        return base.GetPay() * 4;
+    }
 
     //polymorphism activity
 
