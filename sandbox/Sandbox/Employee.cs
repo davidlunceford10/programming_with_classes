@@ -23,6 +23,11 @@ abstract class Employee
 
     public abstract double InsuranceCost();
 
+    public override string ToString()
+    {
+        return $"Name: {_name} Hours Worked: {_hoursWorked} Wage: {_hourlyWage} ";
+    }
+
     //polymorphism activity
 
 }
