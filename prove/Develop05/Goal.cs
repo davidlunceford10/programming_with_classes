@@ -1,12 +1,12 @@
-public class Goal //Base Goal
+public class Goal 
 {
-    protected string _goalType { get; set; }
-    protected string _goalName { get; set; }
-    protected string _goalDescription { get; set; }
-    protected int _goalPointValue { get; set; }
-    protected double _totalScore;
 
-    public Goal(string goalType, string goalName, string goalDescription, int goalPointValue)
+    protected int _goalType;
+    protected string _goalName = "";
+    protected string _goalDescription = "";
+    protected int _goalPointValue;
+
+    public Goal(int goalType, string goalName, string goalDescription, int goalPointValue)
     {
         _goalType = goalType;
         _goalName = goalName;
@@ -14,60 +14,30 @@ public class Goal //Base Goal
         _goalPointValue = goalPointValue;
     }
 
-    public override string ToString()
+    
+    public virtual void CreateNewGoal()
     {
-        return $"{_goalType}#{_goalName}#{_goalDescription}#{_goalPointValue}";
-    }
-
-    public static void BasicGoalInfo(List<Goal> goals)
-    {
-        
-
-        string goalType = "";
-        string goalName = "";
-        string goalDescription = "";
-        int goalPointValue;
+               
+        Console.WriteLine("The types of goals are: ");
+        Console.WriteLine("   1. Simple Goal\n   2. Eternal Goal\n   3. Checklist Goal");
 
         Console.Write("What type of goal would you like to create? ");
-        goalType = Console.ReadLine();
-        Console.Write("What is the name of your goal? ");
-        goalName = Console.ReadLine();
-        Console.Write("What is a short description of it? ");
-        goalDescription = Console.ReadLine();
-        Console.Write("What is the amount of points associated with this goal? ");
-        string goalPointStringValue = Console.ReadLine();
-        goalPointValue = int.Parse(goalPointStringValue);
+        _goalType = int.Parse(Console.ReadLine());
 
-        Goal newGoal = new Goal(goalType, goalName, goalDescription, goalPointValue);
-        goals.Add(newGoal);
+        Console.Write("What is the name of your goal? ");
+        _goalName = Console.ReadLine();
+
+        Console.Write("What is a short description of it? ");
+        _goalDescription = Console.ReadLine();
+
+        Console.Write("What is the amount of points associated with this goal? ");
+        _goalPointValue = int.Parse(Console.ReadLine());
         
     }
 
-    public void SaveGoalsToFile(List<Goal> goals, string filePath)
-{
-    using (StreamWriter writer = new StreamWriter(filePath))
+    public void ListGoals()
     {
-        foreach (var goal in goals)
-        {
-            writer.WriteLine(goal.ToString());
-        }
+
     }
-    Console.WriteLine("Goals have been saved to the file.");
 }
-
-    public virtual void Score()
-    {
-        _totalScore = 0;
-
-    }
-
-    public virtual void RecordEvent()
-    {
-        Console.WriteLine("Type the number of the goal you want to record an event for: ");
-
-    }
-
-
-
-    
-}
+   
