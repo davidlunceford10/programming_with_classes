@@ -2,6 +2,12 @@ using System.ComponentModel.Design;
 
 class Goals : Goal
 {
+    private static List<Goal> goals = new List<Goal>();
+
+    public Goals(string goalType, string goalName, string goalDescription, int goalPointValue)
+        : base(goalType, goalName, goalDescription, goalPointValue)
+    {
+    }
     public static void GoalsMenuAndFunctions()
     {
         {
@@ -25,8 +31,7 @@ class Goals : Goal
                 switch (input)
                 {
                     case "1":
-                        Goal goalMenu = new Goal();
-                        goalMenu.BasicGoalInfo();
+                        BasicGoalInfo(goals); //bb
                         break;
                     case "2":
                         Console.WriteLine("You selected Option 2.");
