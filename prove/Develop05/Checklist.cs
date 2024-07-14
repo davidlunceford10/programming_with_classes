@@ -1,5 +1,38 @@
-// class Checklist : Goal
-// {
-//     //Provide for a checklist goal that must be accomplished a certain number of times to be complete. Each time the user records this goal they gain some value, but when they achieve the desired amount, they get an extra bonus. For example, if you set a goal to attend the temple 10 times, you might get 50 points each time you go, and then a bonus of 500 points on the 10th time.
-    
-// }
+using System;
+
+public class ChecklistGoal : Goal
+{
+    public int TargetCount { get; set; }
+    public int CurrentCount { get; set; }
+    public int BonusPoints { get; set; }
+
+    public ChecklistGoal(string name, int points, int targetCount, int bonusPoints)
+        : base(name, points)
+    {
+        TargetCount = targetCount;
+        CurrentCount = 0;
+        BonusPoints = bonusPoints;
+    }
+
+    public override void RecordEvent()
+    {
+        if (CurrentCount < TargetCount)
+        {
+            CurrentCount++;
+            if (CurrentCount == TargetCount)
+            {
+                IsCompleted = true;
+            }
+        }
+    }
+
+    public override string GetStatus()
+    {
+        return $"[{CurrentCount}/{TargetCount}] {(IsCompleted ? "[X]" : "[ ]")}";
+    }
+
+    public override string GetGoalType()
+    {
+        return "Checklist Goal";
+    }
+}

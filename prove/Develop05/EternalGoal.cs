@@ -1,6 +1,24 @@
-// class EternalGoal : Goal
-// {
-//     //Provide for eternal goals that are never complete, but each time the user records them, they gain some value. For example, every time you read your scriptures you get 100 points.
+using System;
 
-    
-// }
+public class EternalGoal : Goal
+{
+    public EternalGoal(string name, int points) : base(name, points) { }
+
+    public override void RecordEvent()
+    {
+        // Eternal goals are never completed, but points are added each time
+    }
+
+    public override string GetStatus()
+    {
+        return "[∞]";
+    }
+
+    public override string GetGoalType()
+    {
+        return "Eternal Goal";
+    }
+}
+
+
+
