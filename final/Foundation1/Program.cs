@@ -22,7 +22,7 @@ class Program
         Comment v2comment1 = new Comment("Herold", "I love the painting at 0:47");
         Comment v2comment2 = new Comment("bigsniper360", "was looking for memes and found this in my recommended");
         Comment v2comment3 = new Comment("Mary101", "good video, might watch later");
-        Comment v2comment4 = new Comment("Ken", "I might have to buy one of these");
+        Comment v2comment4 = new Comment("Ken", "I might have to buy one of these paintings, I really do like these!");
         video2.AddComment(v2comment1);
         video2.AddComment(v2comment2);
         video2.AddComment(v2comment3);
@@ -33,6 +33,9 @@ class Program
         Comment v3comment1 = new Comment("Bill Murray", "heck yeah!");
         Comment v3comment2 = new Comment("Mark Rober", "I love these videos!");
         Comment v3comment3 = new Comment("SwanRakeRizzler", "bruh I could make that jump");
+        video3.AddComment(v3comment1);
+        video3.AddComment(v3comment2);
+        video3.AddComment(v3comment3);
 
         List<Video> VideoList = new List<Video>();
         

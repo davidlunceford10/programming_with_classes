@@ -1,20 +1,18 @@
 class Comment 
 {
-
     string _commentAuthor;
     string _commentText;
 
     
-
     public Comment(string author, string text)
     {
         _commentAuthor = author;
         _commentText = text;
     }
 
-    public void DisplayComment()
+    public string DisplayComment()
     {
-        Console.WriteLine($"{_commentAuthor}: {_commentText}");
+        return ($"{_commentAuthor}: {_commentText}");
     }
 
 }
