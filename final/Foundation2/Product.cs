@@ -13,12 +13,15 @@ public class Product
         _productQuantity = productQuantity;
     }
 
-    public string CalculateProductTotalCost() //calculates and displays  product total cost.
+    public double CalculateProductTotalCost() //calculates and displays  product total cost.
     {
         double productTotalCost = _productQuantity * _pricePerUnit;
-        return $"${productTotalCost:F2}";  
+        return productTotalCost;
     }
 
-   
+   public string DisplayProductPackingLabel()
+   {
+        return $"Product Name: {_productName} - Product ID: {_productId}";
+   }
 
 }

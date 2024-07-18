@@ -1,10 +1,10 @@
 public class Address
 {
-    string _streetAddress;
-    string _city;
-    string _stateOrProvince;
-    string _country;
-    bool _isUSA;
+    private string _streetAddress;
+    private string _city;
+    private string _stateOrProvince;
+    private string _country;
+    
 
     public Address(string streetAddress, string city, string stateOrProvince, string country)
     {
@@ -17,15 +17,15 @@ public class Address
 
     public bool AddressAmericanOrNot()
     {
-        if (_country != "USA" || _country != "United States" || _country != "America")
+        if (_country == "USA" || _country == "United States" || _country == "America")
         {
-            _isUSA = false;
+            return true;
         }
         else
         {
-            _isUSA = true;
+            return false;
         }
-        return _isUSA;
+        
 
     }
 
@@ -33,4 +33,6 @@ public class Address
     {
         return $"{_streetAddress}\n{_city}, {_stateOrProvince}. {_country}";
     }
+
+   
 }

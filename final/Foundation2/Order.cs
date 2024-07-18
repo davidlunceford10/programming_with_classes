@@ -4,6 +4,8 @@ public class Order
     private float _foreignShippingCost;
 
     private List<Product> _products;
+    
+    
 
 
 
@@ -21,7 +23,10 @@ public class Order
         {
             totalCost += product.CalculateProductTotalCost();
         }
-        if (address.AddressAmericanOrNot())
+
+        bool orderAmerican = address.AddressAmericanOrNot();
+        
+        if (orderAmerican == true)
         {
             totalCost += _shippingCostUSA;
         }
@@ -30,10 +35,27 @@ public class Order
             totalCost += _foreignShippingCost;
         }
 
-        return $"${totalCost:F2}";
+        return $"Order Total: ${totalCost:F2}";
     }
 
-    public  
+    public void ReturnPackingLabel()
+    {
+        Console.WriteLine("\nPacking Label:");
+        foreach(Product product in _products)
+        {
+            Console.WriteLine(product.DisplayProductPackingLabel());
+        }
+    }
+
+    public void ReturnShippingLabel(Customer customer)
+    {
+        Console.WriteLine($"Shipping Label:\n{customer.DisplayCusomerName()} \n{customer.DisplayCustomerAddress()}");
+    }
+
+    public void AddProduct(Product product)
+    {
+        _products.Add(product);
+    }
 
 
 

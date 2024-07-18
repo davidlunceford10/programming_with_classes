@@ -15,6 +15,14 @@ public class Customer
         return _address.AddressAmericanOrNot();
     }
 
-    
+    public string DisplayCusomerName()
+    {
+        return $"{_customerName}";
+    }
+
+    public string DisplayCustomerAddress()
+    {
+        return $"{_address.DisplayCustomerAddress()}";
+    }
 
 }
