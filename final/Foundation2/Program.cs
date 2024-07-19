@@ -11,6 +11,7 @@ class Program
         Product cm1Product2 = new Product("Pizza", 378123, 12.50, 12);
         order1.AddProduct(cm1Product1);
         order1.AddProduct(cm1Product2);
+        Console.WriteLine("--------------------------------\n");
         Console.WriteLine("Order #1\n");
         order1.ReturnShippingLabel(customer1);
         order1.ReturnPackingLabel();
@@ -31,5 +32,25 @@ class Program
         string order2TotalCost = order2.CalculateTotalCost(address2);
         Console.WriteLine($"\n{order2TotalCost}");
         Console.WriteLine("--------------------------------\n");
+
+        Order order3 = new Order();
+        Address address3 = new Address("1440 TwoKay Street", "Ft. Worth", "Texas", "United States");
+        Customer customer3 = new Customer("Bill Murray", address3);
+        Product cm3Product1 = new Product("RTX 4090 Graphics Card", 777777, 2000, 1);
+        Product cm3Product2 = new Product("Honda CRF 350 Dual Sport Dirt Bike", 475335, 5000, 1);
+        Product cm3Product3 = new Product("64GB DDR5 4200 MHz RAM", 573985, 225, 1);
+        Product cm3Product4 = new Product("Monster Energy Drink", 998567, 3, 10000);
+        order3.AddProduct(cm3Product1);
+        order3.AddProduct(cm3Product2);
+        order3.AddProduct(cm3Product3);
+        order3.AddProduct(cm3Product4);
+        Console.WriteLine("Order #3\n");
+        order3.ReturnShippingLabel(customer3);
+        order3.ReturnPackingLabel();
+        string order3TotalCost = order3.CalculateTotalCost(address3);
+        Console.WriteLine($"\n{order3TotalCost}");
+        Console.WriteLine("--------------------------------\n");
     }
 }
+
+//ChatGPT helped with this project but I wrote most of the code.

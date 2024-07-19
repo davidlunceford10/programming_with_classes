@@ -4,10 +4,6 @@ public class Order
     private float _foreignShippingCost;
 
     private List<Product> _products;
-    
-    
-
-
 
     public Order(float shippingCostUSA = 5, float foreignShippingCost = 35, List<Product> products = null)
     {

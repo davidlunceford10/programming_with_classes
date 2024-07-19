@@ -7,7 +7,6 @@ public class Customer
     {
         _customerName = customerName;
         _address = address;
-        
     }
 
     public bool IsCustomerAmerican()

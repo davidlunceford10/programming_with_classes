@@ -4,7 +4,6 @@ public class Address
     private string _city;
     private string _stateOrProvince;
     private string _country;
-    
 
     public Address(string streetAddress, string city, string stateOrProvince, string country)
     {
@@ -12,7 +11,6 @@ public class Address
         _city = city;
         _stateOrProvince = stateOrProvince;
         _country = country;
-        
     }
 
     public bool AddressAmericanOrNot()
@@ -25,8 +23,6 @@ public class Address
         {
             return false;
         }
-        
-
     }
 
     public string DisplayCustomerAddress()
