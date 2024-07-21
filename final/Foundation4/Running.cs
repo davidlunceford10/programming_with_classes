@@ -1,7 +1,8 @@
 public class Running : Activity
 {
     private double _runningDistance;
-    protected double runningDistance {get => _runningDistance; }
+    protected double runningDistance { get => _runningDistance; }
+
     public Running(string date, int activityLengthInMinutes, string activityType, double runningDistance) : base(date, activityLengthInMinutes, activityType)
     {
         _runningDistance = runningDistance;
@@ -23,8 +24,4 @@ public class Running : Activity
         double pace = activityLengthInMinutes / runningDistance;
         return $"{pace:F2}";
     }
-
-    
-
-
 }

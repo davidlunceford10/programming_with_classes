@@ -1,6 +1,3 @@
-using System.IO.Pipes;
-using System.Runtime.InteropServices.Marshalling;
-
 public abstract class Activity
 {
     private string _date;
@@ -10,7 +7,6 @@ public abstract class Activity
     protected string date { get => _date; }
     protected int activityLengthInMinutes { get => _activityLengthInMinutes; }
     protected string activityType { get => _activityType; }
-    
 
     public Activity(string date, int activityLengthInMinutes, string activityType)
     {
@@ -19,16 +15,12 @@ public abstract class Activity
         _activityType = activityType;
     }
 
-    
     public abstract string GetDistance();
-    
     public abstract string GetSpeed();
-
     public abstract string GetPace();
 
     public virtual string GetSummary()
     {
-        return $"{date} {activityType} ({activityLengthInMinutes} min)- Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
+        return $"{date} {activityType} ({activityLengthInMinutes} min) - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
     }
-
 }

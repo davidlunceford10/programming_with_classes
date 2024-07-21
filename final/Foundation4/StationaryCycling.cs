@@ -2,6 +2,7 @@ public class StationaryCycling : Activity
 {
     private double _cyclingDistance;
     protected double cyclingDistance { get => _cyclingDistance; }
+
     public StationaryCycling(string date, int activityLengthInMinutes, string activityType, double cyclingDistance) : base(date, activityLengthInMinutes, activityType)
     {
         _cyclingDistance = cyclingDistance;
@@ -23,6 +24,4 @@ public class StationaryCycling : Activity
         double pace = activityLengthInMinutes / cyclingDistance;
         return $"{pace:F2}";
     }
-
-    
 }
