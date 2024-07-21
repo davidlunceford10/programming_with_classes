@@ -4,6 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation4 World!");
+        Console.WriteLine("Excercise Tracker\nHere are the recorded activities!");
+
+        Running running1 = new Running("7/14/2024", 30, "Running", 4);
+        StationaryCycling cycling1 = new StationaryCycling("7/24/2024", 70, "Stationary Cycling", 5);
+        Swimming swimming1 = new Swimming("6/29/2024", 37, "Swimming", 3);
+
+    
+        
+
+        List<Activity> activitiesList = new List<Activity>();
+        activitiesList.Add(running1);
+        activitiesList.Add(cycling1);
+        activitiesList.Add(swimming1);
+
+        foreach (Activity activity in activitiesList)
+        {
+            Console.WriteLine(activity.GetSummary());
+        }
     }
 }
