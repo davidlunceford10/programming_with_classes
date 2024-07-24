@@ -49,7 +49,7 @@ public class Activity
         {
             Console.Write(i);
             Thread.Sleep(1000);
-            Console.Write("\b \b\b");
+            Console.Write("\b \b");
         }
     }
 
@@ -64,12 +64,16 @@ public class Activity
         Console.Write("How long, in seconds, would you like for your session? ");
         int activityDuration = int.Parse(Console.ReadLine());
         _activityDuration = activityDuration;
-        AwesomeSpinnerAnimation(5);
+        Console.Clear();
+        Console.WriteLine("\nGet Ready...");
+        AwesomeSpinnerAnimation(3);
     }
 
     public void EndingMessage()
     {
-        Console.WriteLine($"Good job! You did the {_activityName} for {_activityDuration} seconds.");
+        Console.WriteLine($"\n\nGood job!");
+        AwesomeSpinnerAnimation(3);
+        Console.WriteLine($"\nYou have completed {_activityDuration} second(s) of the {_activityName}.\n");
+        AwesomeSpinnerAnimation(3);
     }
-
 }
