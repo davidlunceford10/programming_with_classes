@@ -34,6 +34,7 @@ public class BreathingActivity : Activity
                 CountdownAnimation(remainingSeconds - 4);
             }
         }
+        
         EndingMessage();
         
     }

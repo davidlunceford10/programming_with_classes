@@ -56,11 +56,7 @@ public class ReflectionActivity : Activity
                 break;
             }
         }
+
         EndingMessage();
-        
-        
-        
-
-
     }
 }
